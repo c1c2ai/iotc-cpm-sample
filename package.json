@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "build": "tsc",
     "podinstall": "node podinstall.js",
-    "postinstall": "npx jetify && npm run podinstall && npm run prepackage",
+    "postinstall": "npx jetify && npm run podinstall && npm run prepackage && cd ios && pod install",
     "prepackage": "node pre-packager.js"
   },
   "dependencies": {
