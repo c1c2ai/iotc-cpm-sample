@@ -45,19 +45,7 @@ export class GoogleFitManager implements IHealthManager {
       if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
         throw new Error('Bluetooth permissions not granted');
       }
-      const grantedactivityrecognition = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACTIVITY_RECOGNITION,
-        {
-          title: 'Activity Recognition',
-          message: `Application would like to use application recognition`,
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      if (grantedactivityrecognition !== PermissionsAndroid.RESULTS.GRANTED) {
-        throw new Error('application recognition permissions not granted');
-      }
+      
       if (!GoogleFit.isAuthorized) {
         const authResult = await GoogleFit.authorize({scopes: SCOPES});
         if (authResult.success) {
